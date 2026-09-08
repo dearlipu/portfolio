@@ -5,56 +5,75 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 {
   hasEducation && (
-    <section id="education" class="p-8 sm:p-12 md:p-16 lg:p-24">
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Education
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
-
-          <div class="lg:col-span-8">
-            <div class="space-y-8">
-              {siteConfig.education.map((edu) => (
-                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
-                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                    <div>
-                      <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
-                        {edu.degree}
-                      </h3>
-                      <p
-                        class="text-base sm:text-lg"
-                        style={`color: ${siteConfig.accentColor}`}
-                      >
-                        {edu.school}
-                      </p>
-                    </div>
-                    <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">
-                      {edu.dateRange}
-                    </span>
-                  </div>
-
-                  <ul class="space-y-2">
-                    {edu.achievements.map((achievement) => (
-                      <li class="flex items-start">
-                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
-                        <span class="text-sm sm:text-base text-gray-600">
-                          {achievement}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+    <section id="education" class="page-shell content-section" data-reveal>
+      <div class="section-heading">
+        <span class="eyebrow">04 / education</span>
+      </div>
+      <div class="education-list">
+        {siteConfig.education.map((edu) => (
+          <article class="education-row" data-reveal>
+            <div>
+              <h3>{edu.degree}</h3>
+              <p>{edu.school}</p>
+              <ul>
+                {edu.achievements.map((achievement) => (
+                  <li>{achievement}</li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </div>
+            <span>{edu.dateRange}</span>
+          </article>
+        ))}
       </div>
     </section>
   )
 }
+
+<style>
+  .education-list {
+    margin-top: 22px;
+  }
+  .education-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid var(--line);
+    padding: 26px 0;
+  }
+  h3 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+  }
+  p,
+  .education-row > span {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+  ul {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+  }
+  li {
+    color: var(--muted);
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+  li::before {
+    content: "+ ";
+    color: var(--accent);
+  }
+  @media (max-width: 600px) {
+    .education-row {
+      display: block;
+    }
+    .education-row > span {
+      display: block;
+      margin-top: 12px;
+    }
+  }
+</style>

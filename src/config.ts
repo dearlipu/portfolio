@@ -3,10 +3,9 @@ export const siteConfig = {
   title: "Operations & Digital Media Professional",
   description:
     "Portfolio of Saurav Panda, a multi-skilled operations and digital media professional from Balugaon, Chilika, Odisha.",
-  accentColor: "#2563eb",
   social: {
-    email: "sauravpanda34+job@gmail.com",
-    website: "https://dearlipu.github.io",
+    email: "hello@dearlipu.is-a.dev",
+    website: "https://dearlipu.is-a.dev",
     linkedin: "",
     twitter: "",
     github: "https://github.com/dearlipu",

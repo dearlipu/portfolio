@@ -17,6 +17,11 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={siteConfig.description} />
+    <script is:inline>
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      document.documentElement.dataset.theme =
+        savedTheme === "light" ? "light" : "dark";
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,13 +32,35 @@ import "../styles/global.css";
   </head>
   <body>
     <Header />
-    <section>
+    <main>
       <Hero />
       <About />
       <Projects />
       <Experience />
       <Education />
-    </section>
+    </main>
     <Footer />
+    <script>
+      const revealItems =
+        document.querySelectorAll<HTMLElement>("[data-reveal]");
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px" },
+        );
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      }
+    </script>
   </body>
 </html>

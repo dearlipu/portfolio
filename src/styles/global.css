@@ -1,5 +1,117 @@
 @import "tailwindcss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --paper: #101211;
+  --ink: #f2f3ec;
+  --muted: #a5aaa1;
+  --line: #333936;
+  --accent: #c8f05a;
+  --hover-surface: #aebc78;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+:root[data-theme="light"] {
+  --paper: #f4f2ec;
+  --ink: #1d1d1b;
+  --muted: #706d66;
+  --line: #d7d3c8;
+  --accent: #9abf22;
+  --hover-surface: #dfe6bd;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--paper);
+  color: var(--ink);
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.page-shell {
+  width: min(100% - 40px, 1180px);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-rule {
+  border-top: 1px solid var(--line);
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 650ms ease var(--reveal-delay, 0ms),
+    transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    width: min(100% - 96px, 1180px);
+  }
 }

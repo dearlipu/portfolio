@@ -6,73 +6,154 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 ---
 
-<header
-  id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
->
-  <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
-      <li>
-        <a
-          href="#about"
-          class="text-gray-700 hover:text-black transition-colors font-medium"
-        >
-          About
-        </a>
-      </li>
-      {
-        hasProjects && (
-          <li>
-            <a
-              href="#projects"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Projects
-            </a>
-          </li>
-        )
-      }
-      {
-        hasExperience && (
-          <li>
-            <a
-              href="#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Experience
-            </a>
-          </li>
-        )
-      }
-      {
-        hasEducation && (
-          <li>
-            <a
-              href="#education"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Education
-            </a>
-          </li>
-        )
-      }
-    </ul>
-  </nav>
+<header class="site-header">
+  <div class="page-shell header-inner">
+    <a class="brand" href="#hero" aria-label={`${siteConfig.name} home`}
+      >SP<span>.</span></a
+    >
+    <nav aria-label="Main navigation">
+      <a href="#about">about</a>
+      {hasProjects && <a href="#projects">projects</a>}
+      {hasExperience && <a href="#experience">experience</a>}
+      {hasEducation && <a href="#education">education</a>}
+    </nav>
+    <a class="header-contact" href={`mailto:${siteConfig.social.email}`}
+      >let's talk <span>↗</span></a
+    >
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Switch to light theme"
+      title="Switch theme"
+    >
+      <span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span>
+      <span class="theme-icon theme-icon-moon" aria-hidden="true">◐</span>
+    </button>
+  </div>
 </header>
 
 <script>
-  window.addEventListener("scroll", () => {
-    const header = document.getElementById("header");
-    if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
-    } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
-    }
+  const themeToggle =
+    document.querySelector<HTMLButtonElement>(".theme-toggle");
+
+  const updateThemeToggle = () => {
+    const isLight = document.documentElement.dataset.theme === "light";
+    themeToggle?.setAttribute(
+      "aria-label",
+      isLight ? "Switch to dark theme" : "Switch to light theme",
+    );
+    themeToggle?.classList.toggle("is-light", isLight);
+  };
+
+  themeToggle?.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = nextTheme;
+    localStorage.setItem("portfolio-theme", nextTheme);
+    updateThemeToggle();
   });
+
+  updateThemeToggle();
 </script>
 
 <style>
-  html {
-    scroll-behavior: smooth;
+  .site-header {
+    padding: 26px 0;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    text-decoration: none;
+  }
+  .brand span,
+  .header-contact span {
+    color: var(--accent);
+  }
+  nav {
+    display: flex;
+    gap: 22px;
+  }
+  nav a,
+  .header-contact {
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+  nav a {
+    color: var(--muted);
+  }
+  nav a:hover,
+  .header-contact:hover {
+    color: var(--ink);
+  }
+  .header-contact {
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 4px;
+  }
+  .theme-toggle {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    font: inherit;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #101211;
+  }
+  .theme-icon {
+    grid-area: 1 / 1;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .theme-icon-sun,
+  .theme-toggle.is-light .theme-icon-moon {
+    display: none;
+  }
+  .theme-toggle.is-light .theme-icon-sun {
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .site-header {
+      padding: 20px 0;
+    }
+    nav {
+      flex: 1;
+      justify-content: end;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+    nav a,
+    .header-contact {
+      font-size: 0.65rem;
+      white-space: nowrap;
+    }
+    .header-contact {
+      display: none;
+    }
+    .theme-toggle {
+      margin-left: auto;
+    }
   }
 </style>

@@ -2,39 +2,78 @@
 import { siteConfig } from "../config";
 ---
 
-<section id="about" class="p-8 sm:p-12 md:p-16 lg:p-24">
-  <div>
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-      <div class="lg:col-span-4">
-        <h2
-          class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900"
-        >
-          About Me
-        </h2>
-        <div
-          class="w-[75px] h-[5px] mt-2 rounded-full"
-          style={`background-color: ${siteConfig.accentColor}`}
-        >
-        </div>
-      </div>
-
-      <div class="lg:col-span-8 space-y-8">
-        <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
-          {siteConfig.aboutMe}
-        </p>
-
-        <div class="pt-4">
-          <div class="flex flex-wrap gap-3">
-            {
-              siteConfig.skills.map((skill) => (
-                <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-gray-200 transition-colors duration-200">
-                  {skill}
-                </span>
-              ))
-            }
-          </div>
-        </div>
+<section id="about" class="page-shell section-rule content-section" data-reveal>
+  <div class="section-heading">
+    <span class="eyebrow">01 / about</span>
+  </div>
+  <div class="about-grid" data-reveal>
+    <h2>Useful work,<br /><em>well considered.</em></h2>
+    <div>
+      <p class="about-copy">{siteConfig.aboutMe}</p>
+      <div class="skill-list" aria-label="Skills">
+        {siteConfig.skills.map((skill) => <span>{skill}</span>)}
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .content-section {
+    padding: 120px 0;
+  }
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 14px;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    padding-top: 52px;
+  }
+  h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 6rem);
+    font-weight: 400;
+    letter-spacing: -0.07em;
+    line-height: 0.92;
+  }
+  h2 em {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .about-copy {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+    line-height: 1.65;
+  }
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  .skill-list span {
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+  .skill-list span::before {
+    content: "+ ";
+    color: var(--accent);
+  }
+  @media (max-width: 700px) {
+    .content-section {
+      padding: 80px 0;
+    }
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      padding-top: 36px;
+    }
+  }
+</style>
