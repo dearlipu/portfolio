@@ -2,7 +2,7 @@
 import { siteConfig } from "../config";
 ---
 
-<section id="about" class="page-shell section-rule content-section" data-reveal>
+<section id="about" class="page-shell content-section" data-reveal>
   <div class="section-heading">
     <span class="eyebrow">01 / about</span>
   </div>
@@ -19,19 +19,20 @@ import { siteConfig } from "../config";
 
 <style>
   .content-section {
-    padding: 120px 0;
+    padding: 110px 0;
   }
   .section-heading {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 14px;
+    align-items: center;
+    margin-bottom: clamp(24px, 2.8vw, 32px);
+    padding-bottom: 0;
   }
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10%;
-    padding-top: 52px;
+    padding-top: 0;
   }
   h2 {
     margin: 0;

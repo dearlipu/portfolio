@@ -11,7 +11,7 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
       </div>
       <div class="project-list">
         {siteConfig.projects.map((project, index) => (
-          <article class="project-row" data-reveal>
+          <article class="project-row" data-reveal tabindex="0">
             <span class="project-number">0{index + 1}</span>
             <div class="project-main">
               <h3>{project.name}</h3>
@@ -34,7 +34,7 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 
 <style>
   .project-list {
-    margin-top: 22px;
+    margin-top: 0;
   }
   .project-row {
     display: grid;
@@ -42,22 +42,37 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
     gap: 24px;
     align-items: start;
     border-bottom: 1px solid var(--line);
-    padding: 30px 0;
+    padding: 32px 0;
+    cursor: pointer;
     transition:
       transform 180ms ease,
       background-color 180ms ease,
-      border-radius 180ms ease;
+      border-radius 180ms ease,
+      box-shadow 180ms ease;
   }
-  .project-row:hover {
+  .project-row:hover,
+  .project-row:focus-visible,
+  .project-row:active {
     transform: translateX(8px);
-    background: var(--hover-surface);
+    background: var(--accent);
     border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(24, 32, 24, 0.15);
   }
   .project-row:hover .project-number,
   .project-row:hover .project-meta,
   .project-row:hover .project-main p,
   .project-row:hover h3,
-  .project-row:hover .project-arrow {
+  .project-row:hover .project-arrow,
+  .project-row:focus-visible .project-number,
+  .project-row:focus-visible .project-meta,
+  .project-row:focus-visible .project-main p,
+  .project-row:focus-visible h3,
+  .project-row:focus-visible .project-arrow,
+  .project-row:active .project-number,
+  .project-row:active .project-meta,
+  .project-row:active .project-main p,
+  .project-row:active h3,
+  .project-row:active .project-arrow {
     color: #182018;
   }
   .project-number,
@@ -74,7 +89,7 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
   }
   .project-main p {
     max-width: 540px;
-    margin: 12px 0 0;
+    margin: 14px 0 0;
     color: var(--muted);
     font-size: 0.85rem;
     line-height: 1.7;

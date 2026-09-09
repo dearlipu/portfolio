@@ -17,17 +17,45 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
       {hasExperience && <a href="#experience">experience</a>}
       {hasEducation && <a href="#education">education</a>}
     </nav>
-    <a class="header-contact" href={`mailto:${siteConfig.social.email}`}
-      >let's talk <span>↗</span></a
-    >
     <button
       class="theme-toggle"
       type="button"
       aria-label="Switch to light theme"
       title="Switch theme"
     >
-      <span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span>
-      <span class="theme-icon theme-icon-moon" aria-hidden="true">◐</span>
+      <span class="theme-icon theme-icon-sun" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+          <path
+            d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+          ></path>
+        </svg>
+      </span>
+      <span class="theme-icon theme-icon-moon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"
+          ></path>
+        </svg>
+      </span>
     </button>
   </div>
 </header>
@@ -64,7 +92,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 16px;
   }
   .brand {
     font-size: 1.15rem;
@@ -72,38 +100,50 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     letter-spacing: -0.08em;
     text-decoration: none;
   }
-  .brand span,
-  .header-contact span {
+  .brand span {
     color: var(--accent);
   }
   nav {
     display: flex;
-    gap: 22px;
-  }
-  nav a,
-  .header-contact {
-    font-size: 0.75rem;
-    text-decoration: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: auto;
   }
   nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    line-height: 1;
+    text-decoration: none;
     color: var(--muted);
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
   }
   nav a:hover,
-  .header-contact:hover {
+  nav a:focus-visible {
     color: var(--ink);
+    background: var(--hover-surface);
   }
-  .header-contact {
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 4px;
+  nav a:active {
+    transform: translateY(1px);
   }
   .theme-toggle {
     display: grid;
-    width: 34px;
-    height: 34px;
-    flex: 0 0 34px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    flex: 0 0 30px;
     place-items: center;
-    border: 1px solid var(--line);
-    border-radius: 50%;
+    border: 1px solid transparent;
+    border-radius: 10px;
     background: transparent;
     color: var(--ink);
     cursor: pointer;
@@ -111,24 +151,37 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     transition:
       border-color 180ms ease,
       background-color 180ms ease,
-      color 180ms ease;
+      color 180ms ease,
+      transform 180ms ease;
   }
-  .theme-toggle:hover {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: #101211;
+  .theme-toggle:hover,
+  .theme-toggle:focus-visible {
+    border-color: var(--line);
+    background: var(--hover-surface);
+  }
+  .theme-toggle:active {
+    transform: translateY(1px);
   }
   .theme-icon {
     grid-area: 1 / 1;
-    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
     line-height: 1;
+  }
+  .theme-icon svg {
+    display: block;
+    width: 14px;
+    height: 14px;
   }
   .theme-icon-sun,
   .theme-toggle.is-light .theme-icon-moon {
     display: none;
   }
   .theme-toggle.is-light .theme-icon-sun {
-    display: block;
+    display: flex;
   }
   @media (max-width: 640px) {
     .site-header {
@@ -137,23 +190,20 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     nav {
       flex: 1;
       justify-content: end;
-      gap: 10px;
+      gap: 6px;
       overflow-x: auto;
       scrollbar-width: none;
     }
     nav::-webkit-scrollbar {
       display: none;
     }
-    nav a,
-    .header-contact {
+    nav a {
       font-size: 0.65rem;
       white-space: nowrap;
-    }
-    .header-contact {
-      display: none;
+      padding: 0.35rem 0.65rem;
     }
     .theme-toggle {
-      margin-left: auto;
+      margin-left: 0;
     }
   }
 </style>

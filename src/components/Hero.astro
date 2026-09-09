@@ -7,11 +7,6 @@ import { siteConfig } from "../config";
     <p class="eyebrow">Balugaon, Odisha, India</p>
     <h1>{siteConfig.name}</h1>
     <p class="hero-role">{siteConfig.title}</p>
-    <p class="hero-intro">
-      I bring order to busy systems and clarity to digital work, combining
-      practical operations experience with a sharp eye for design, media, and
-      communication.
-    </p>
   </div>
   <div class="hero-footer">
     <span class="scroll-note">scroll to explore <span>↓</span></span>
@@ -144,14 +139,16 @@ import { siteConfig } from "../config";
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 12vh 0 44px;
+    padding: 12vh 0 36px;
   }
   .hero-copy {
     max-width: 900px;
+    display: flex;
+    flex-direction: column;
     animation: rise 0.8s ease-out both;
   }
   .hero h1 {
-    margin: 38px 0 18px;
+    margin: 28px 0 12px;
     font-family: var(--serif);
     font-size: clamp(4rem, 12vw, 10.5rem);
     font-weight: 400;
@@ -159,6 +156,7 @@ import { siteConfig } from "../config";
     line-height: 0.82;
   }
   .hero-role {
+    margin: 0;
     font-size: clamp(1rem, 2vw, 1.4rem);
     color: var(--muted);
   }
@@ -169,11 +167,16 @@ import { siteConfig } from "../config";
     line-height: 1.7;
   }
   .hero-footer {
+    position: sticky;
+    bottom: 20px;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: center;
+    margin-top: clamp(3rem, 12vh, 8rem);
     border-top: 1px solid var(--line);
-    padding-top: 18px;
+    background: var(--paper);
+    padding-top: 20px;
   }
   .scroll-note {
     color: var(--muted);
@@ -210,14 +213,22 @@ import { siteConfig } from "../config";
   @media (max-width: 640px) {
     .hero {
       min-height: calc(100vh - 65px);
-      padding-top: 14vh;
+      padding-top: 10vh;
+      padding-bottom: 28px;
     }
     .hero h1 {
-      margin-top: 28px;
+      margin-top: 24px;
       font-size: clamp(4rem, 20vw, 7rem);
+    }
+    .hero-role {
+      margin-top: 0;
     }
     .hero-intro {
       margin-top: 30px;
+    }
+    .hero-footer {
+      margin-top: 2.5rem;
+      padding-top: 18px;
     }
   }
 </style>

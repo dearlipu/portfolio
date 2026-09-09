@@ -11,8 +11,8 @@
   --ink: #f2f3ec;
   --muted: #a5aaa1;
   --line: #333936;
-  --accent: #c8f05a;
-  --hover-surface: #aebc78;
+  --accent: #b7c97c;
+  --hover-surface: #243328;
   --serif: Georgia, "Times New Roman", serif;
 }
 
@@ -21,8 +21,8 @@
   --ink: #1d1d1b;
   --muted: #706d66;
   --line: #d7d3c8;
-  --accent: #9abf22;
-  --hover-surface: #dfe6bd;
+  --accent: #6c8a3e;
+  --hover-surface: #dde8c3;
 }
 
 html {
@@ -70,9 +70,17 @@ a {
 
 .eyebrow {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: clamp(16px, 2vw, 24px);
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .section-rule {
