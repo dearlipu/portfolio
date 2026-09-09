@@ -79,8 +79,9 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: clamp(16px, 2vw, 24px);
+  margin-top: 0;
   margin-bottom: clamp(16px, 2vw, 24px);
+  padding-top: 0;
 }
 
 .section-rule {

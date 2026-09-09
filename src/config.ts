@@ -12,6 +12,7 @@ export const siteConfig = {
   },
   aboutMe:
     "I’m a multi-skilled operations and digital media professional with 5+ years of experience across operations, technical support, design, editing, customer service, and digital systems work. I enjoy improving workflows, solving practical problems, and creating content that looks good and works well. My background includes museum operations, training, telecom support, and media production, so I’m comfortable balancing both creative and operational responsibilities.",
+  languages: ["English", "Hindi", "Odia"],
   skills: [
     "Operations Management",
     "Technical Support",
@@ -19,6 +20,12 @@ export const siteConfig = {
     "Video Editing",
     "Customer Service",
     "Digital Marketing",
+    "Content Strategy",
+    "Training & Facilitation",
+    "Documentation & Reporting",
+    "Workflow Improvement",
+  ],
+  software: [
     "HTML/CSS",
     "WordPress",
     "Photoshop",
@@ -32,9 +39,6 @@ export const siteConfig = {
     "VS Code",
     "GitHub",
     "MS Office 365",
-    "English",
-    "Hindi",
-    "Odia",
   ],
   projects: [
     {

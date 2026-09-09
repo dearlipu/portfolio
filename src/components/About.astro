@@ -11,7 +11,24 @@ import { siteConfig } from "../config";
     <div>
       <p class="about-copy">{siteConfig.aboutMe}</p>
       <div class="skill-list" aria-label="Skills">
-        {siteConfig.skills.map((skill) => <span>{skill}</span>)}
+        <div class="skill-entry">
+          <span class="skill-label">Languages</span>
+          <div class="skill-values">
+            {siteConfig.languages.map((item) => <span>{item}</span>)}
+          </div>
+        </div>
+        <div class="skill-entry">
+          <span class="skill-label">Skills</span>
+          <div class="skill-values">
+            {siteConfig.skills.map((item) => <span>{item}</span>)}
+          </div>
+        </div>
+        <div class="skill-entry">
+          <span class="skill-label">Software</span>
+          <div class="skill-values">
+            {siteConfig.software.map((item) => <span>{item}</span>)}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -19,7 +36,7 @@ import { siteConfig } from "../config";
 
 <style>
   .content-section {
-    padding: 110px 0;
+    padding: 18px 0 36px;
   }
   .section-heading {
     display: flex;
@@ -48,22 +65,39 @@ import { siteConfig } from "../config";
   }
   .about-copy {
     margin: 0;
-    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
-    line-height: 1.65;
+    font-size: clamp(0.9rem, 1.3vw, 1.12rem);
+    line-height: 1.6;
   }
   .skill-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px 18px;
+    flex-direction: column;
+    gap: 16px;
     margin-top: 44px;
     border-top: 1px solid var(--line);
-    padding-top: 16px;
+    padding-top: 18px;
   }
-  .skill-list span {
+  .skill-entry {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .skill-label {
+    color: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .skill-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
     color: var(--muted);
-    font-size: 0.75rem;
+    font-size: 0.76rem;
+    line-height: 1.8;
   }
-  .skill-list span::before {
+  .skill-values span::before {
     content: "+ ";
     color: var(--accent);
   }
