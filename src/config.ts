@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Saurav Panda",
-  title: "Operations & Digital Media Professional",
+  title: "Developer & Designer",
   description:
-    "Portfolio of Saurav Panda, a multi-skilled operations and digital media professional from Balugaon, Chilika, Odisha.",
+    "Portfolio of Saurav Panda, a developer and designer with experience in web development, user experience, and digital design.",
   social: {
     email: "hello@dearlipu.is-a.dev",
     website: "https://dearlipu.is-a.dev",
@@ -10,23 +10,70 @@ export const siteConfig = {
     twitter: "",
     github: "https://github.com/dearlipu",
   },
+  certifications: [
+    {
+      name: "AI-Powered Performance Ads Certification",
+      provider: "Google",
+      year: "2024",
+      link: "https://skillshop.exceedlms.com/student/catalog",
+    },
+    {
+      name: "Google Analytics Certification",
+      provider: "Google",
+      year: "2024",
+      link: "https://skillshop.exceedlms.com/student/catalog",
+    },
+    {
+      name: "Digital Marketing Certification",
+      provider: "HubSpot",
+      year: "2024",
+      link: "https://academy.hubspot.com/certifications/digital-marketing",
+    },
+    {
+      name: "Social Media Marketing Certification",
+      provider: "HubSpot",
+      year: "2024",
+      link: "https://academy.hubspot.com/certifications/social-media-marketing",
+    },
+    {
+      name: "Ethical Hacking: Evading IDS, Firewalls, and Honeypots",
+      provider: "LinkedIn Learning",
+      year: "2023",
+      link: "https://www.linkedin.com/learning/search?keywords=Ethical%20Hacking%3A%20Evading%20IDS%2C%20Firewalls%2C%20and%20Honeypots",
+    },
+    {
+      name: "Graphic Design: Basics to Advanced",
+      provider: "LinkedIn Learning",
+      year: "2024",
+      link: "https://www.linkedin.com/learning/search?keywords=Graphic%20Design%3A%20Basics%20to%20Advanced",
+    },
+  ],
   aboutMe:
-    "I’m a multi-skilled operations and digital media professional with 5+ years of experience across operations, technical support, design, editing, customer service, and digital systems work. I enjoy improving workflows, solving practical problems, and creating content that looks good and works well. My background includes museum operations, training, telecom support, and media production, so I’m comfortable balancing both creative and operational responsibilities.",
-  languages: ["English", "Hindi", "Odia"],
+    "Operations and digital media professional with 5+ years of experience across museum operations, technical support, training, customer service, digital systems, and media production. Skilled in improving workflows, maintaining reliable systems, supporting teams, and delivering practical, high-quality work in both operational and creative environments.",
+  languages: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "Astro",
+    "Python",
+  ],
   skills: [
     "Operations Management",
     "Technical Support",
+    "IT Troubleshooting",
+    "System Maintenance",
     "Graphic Design",
     "Video Editing",
+    "Content Creation",
     "Customer Service",
     "Digital Marketing",
-    "Content Strategy",
     "Training & Facilitation",
     "Documentation & Reporting",
     "Workflow Improvement",
+    "Problem Solving",
   ],
   software: [
-    "HTML/CSS",
     "WordPress",
     "Photoshop",
     "Illustrator",
@@ -39,94 +86,107 @@ export const siteConfig = {
     "VS Code",
     "GitHub",
     "MS Office 365",
+    "Google Workspace",
   ],
   projects: [
     {
       name: "Museum Operations & Visitor Experience",
       description:
-        "Managed day-to-day museum operations, visitor coordination, staff scheduling, and reporting while improving internal systems and workflow structure.",
+        "Managed day-to-day museum operations, coordinated visitor services, supervised staff schedules, and improved internal reporting and workflow systems.",
       skills: ["Operations", "Administration", "Documentation", "Team Support"],
     },
     {
       name: "Digital Literacy Training",
       description:
-        "Taught computer basics, MS Office, internet use, and beginner web skills to students with practical hands-on training and simplified materials.",
+        "Delivered computer and digital literacy training to students, covering MS Office, internet use, and beginner web development through practical instruction.",
       skills: ["Training", "Computer Skills", "MS Office", "Web Basics"],
     },
     {
       name: "Media Production & Branding",
       description:
-        "Created posters, graphics, thumbnails, branding assets, and edited videos for digital publishing and brand communication.",
+        "Produced posters, graphics, thumbnails, and video content for digital publishing, branding, and online communication.",
       skills: ["Graphic Design", "Video Editing", "Content Creation", "Branding"],
+    },
+    {
+      name: "Technical Support & Systems Maintenance",
+      description:
+        "Provided hands-on technical support, maintained workplace systems, and helped keep digital and operational processes running smoothly.",
+      skills: ["IT Support", "System Maintenance", "Problem Solving", "Operations"],
+    },
+    {
+      name: "Content Strategy & Social Media Design",
+      description:
+        "Created visual content, promotional assets, and digital materials to support branding, audience engagement, and online communication.",
+      skills: ["Graphic Design", "Content Creation", "Branding", "Social Media"],
+    },
+    {
+      name: "Workshop & Training Coordination",
+      description:
+        "Organized practical training sessions, guided learners through essential digital tools, and supported skill-building in real-world settings.",
+      skills: ["Training", "Facilitation", "Digital Skills", "Mentoring"],
     },
   ],
   experience: [
     {
-      company: "Purvasha Folk & Tribal Odi Art Museum, Barkul",
+      company: "Indian Naval Hospital Ship Nivarini, Chilka, Odisha",
+      title: "IT Engineer",
+      jobType: "Part-time",
+      dateRange: "July 2026 – Present",
+      bullets: [
+        "Delivered technical support for computers, network systems, and daily workplace equipment.",
+        "Maintained smooth IT operations by resolving issues quickly and minimizing downtime.",
+        "Supported reliable service delivery across the organization.",
+      ],
+    },
+    {
+      company: "Purvasha Folk & Tribal Odi Art Museum, Barkul, Odisha",
       title: "Assistant Manager",
+      jobType: "Full-time",
       dateRange: "December 2022 – December 2025",
       bullets: [
-        "Managed daily museum operations, including visitor coordination, scheduling, reporting, and staff management.",
-        "Improved workflow by organizing documentation systems, technical processes, and internal coordination across departments.",
-        "Maintained and troubleshot computers, display systems, networking devices, and digital infrastructure to reduce downtime.",
-        "Designed promotional materials, posters, digital creatives, and exhibition branding assets for public engagement.",
-        "Coordinated events and exhibitions while ensuring smooth operational execution and administrative support.",
+        "Managed day-to-day museum operations, including visitor support, staff coordination, scheduling, and reporting.",
+        "Improved workflows, documentation, and cross-department coordination to strengthen operational efficiency.",
+        "Maintained technical systems, display infrastructure, and promotional materials to support smooth operations and public engagement.",
       ],
     },
     {
-      company: "Nanotech Computer Academy, Bidharpur",
-      title: "Lecturer",
-      dateRange: "July 2022 – March 2023",
+      company: "Nanotech Computer Academy, Bidharpur, Odisha",
+      title: "Teacher & Trainer",
+      jobType: "Part-time",
+      dateRange: "September 2022 – March 2023",
       bullets: [
-        "Trained students in computer fundamentals, MS Office, internet usage, and digital literacy.",
-        "Guided students in HTML, CSS, and beginner-level project development.",
-        "Conducted practical lab sessions, assignments, and hands-on student guidance to improve learning outcomes.",
-        "Developed simplified learning materials and structured lesson modules for easier understanding.",
-        "Maintained the computer lab and handled software installation and configuration tasks.",
+        "Delivered training in computer fundamentals, MS Office, internet use, and digital literacy.",
+        "Guided students in HTML, CSS, and beginner-level web development with practical instruction.",
+        "Conducted lab sessions and hands-on support to improve learning outcomes.",
       ],
     },
     {
-      company: "Bharti Airtel Limited / Reliance Jio Infocomm Limited, Balugaon",
-      title: "Digital Service Executive",
-      dateRange: "February 2022 – November 2022",
-      bullets: [
-        "Managed customer onboarding, SIM activation, device setup, and digital KYC processes.",
-        "Assisted customers with telecom plans, billing queries, service troubleshooting, and porting requests.",
-        "Achieved sales and service targets through customer-focused communication and issue resolution.",
-        "Maintained store documentation, stock records, and activation reports with a strong service standard.",
-      ],
-    },
-    {
-      company: "Odisha Newsroom Media Network, Bhubaneswar",
+      company: "Odisha Newsroom Media Network, Bhubaneswar, Odisha",
       title: "Motion & Graphic Designer",
+      jobType: "Remote",
       dateRange: "June 2019 – January 2022",
       bullets: [
-        "Designed graphics, posters, thumbnails, branding assets, and social media creatives for digital publishing.",
-        "Edited videos for news content, interviews, and digital publishing platforms.",
-        "Collaborated with editorial teams to deliver high-quality media content under tight deadlines.",
-        "Organized content workflows and project files to streamline production efficiency.",
-        "Developed responsive websites and apps for media-related requirements as part of digital support work.",
+        "Designed posters, graphics, thumbnails, and social media creatives for digital publishing.",
+        "Edited video content for news, interviews, and online platforms.",
+        "Collaborated with editorial teams to deliver high-quality content on schedule and maintain organized project workflows.",
       ],
     },
   ],
   education: [
     {
-      school: "Central Institute of Petrochemicals Engineering & Technology (CIPET), Bhubaneswar",
-      degree: "Industrial Training in Fitter (NSQF)",
-      dateRange: "August 2022",
-      achievements: [
-        "Completed technical training in fitter operations and practical workshop fundamentals.",
-        "Developed hands-on understanding of industrial processes and maintenance practices.",
-      ],
+      school: "Einstein Academy of Technology and Management (EATM), Bhubaneswar, Odisha",
+      degree: "Diploma in Computer Science Engineering (CSE)",
+      dateRange: "Expected July 2028",
     },
     {
-      school: "3TIER Computer Academy, Balugaon",
+      school: "Central Institute of Petrochemicals Engineering & Technology (CIPET), Bhubaneswar, Odisha",
+      degree: "Industrial Training in Fitter (NSQF)",
+      dateRange: "August 2022",
+    },
+    {
+      school: "3TIER Computer Academy, Balugaon, Odisha",
       degree: "Post Graduate Diploma in Computer Applications",
       dateRange: "March 2020",
-      achievements: [
-        "Completed advanced computing coursework covering essential digital tools and applications.",
-        "Strengthened practical skills in computers, office automation, and digital workflow management.",
-      ],
     },
   ],
 };

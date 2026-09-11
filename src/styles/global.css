@@ -44,6 +44,52 @@ body {
   transition: background-color 180ms ease, color 180ms ease;
 }
 
+.scroll-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(16, 18, 17, 0.92);
+  color: var(--ink);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 0ms linear 180ms,
+    border-color 180ms ease,
+    background-color 180ms ease;
+  cursor: pointer;
+}
+
+.scroll-top-button.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0ms;
+}
+
+.scroll-top-button:hover,
+.scroll-top-button:focus-visible {
+  border-color: rgba(183, 201, 124, 0.7);
+  background: rgba(183, 201, 124, 0.08);
+}
+
+.scroll-top-button svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
 ::selection {
   background: var(--accent);
   color: var(--ink);

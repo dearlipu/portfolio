@@ -40,9 +40,34 @@ import "../styles/global.css";
       <Education />
     </main>
     <Footer />
+    <button
+      class="scroll-top-button"
+      type="button"
+      aria-label="Scroll to top"
+      title="Scroll to top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M7 11l5 -5l5 5"></path>
+        <path d="M7 17l5 -5l5 5"></path>
+      </svg>
+    </button>
     <script>
       const revealItems =
         document.querySelectorAll<HTMLElement>("[data-reveal]");
+      const scrollTopButton =
+        document.querySelector<HTMLButtonElement>(".scroll-top-button");
 
       if ("IntersectionObserver" in window) {
         const revealObserver = new IntersectionObserver(
@@ -61,6 +86,20 @@ import "../styles/global.css";
       } else {
         revealItems.forEach((item) => item.classList.add("is-visible"));
       }
+
+      const updateScrollTopButton = () => {
+        const visible = window.scrollY > 320;
+        scrollTopButton?.classList.toggle("is-visible", visible);
+      };
+
+      scrollTopButton?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      updateScrollTopButton();
+      window.addEventListener("scroll", updateScrollTopButton, {
+        passive: true,
+      });
     </script>
   </body>
 </html>

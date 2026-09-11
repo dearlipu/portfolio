@@ -4,65 +4,141 @@ import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const hasCertifications =
+  siteConfig.certifications && siteConfig.certifications.length > 0;
 ---
 
 <header class="site-header">
   <div class="page-shell header-inner">
-    <a class="brand" href="#hero" aria-label={`${siteConfig.name} home`}
-      >SP<span>.</span></a
-    >
-    <nav aria-label="Main navigation">
-      <a href="#about">about</a>
-      {hasProjects && <a href="#projects">projects</a>}
-      {hasExperience && <a href="#experience">experience</a>}
-      {hasEducation && <a href="#education">education</a>}
+    <a class="brand" href="#hero" aria-label={`${siteConfig.name} home`}>
+      <span class="brand-mark" aria-hidden="true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14"
+          ></path>
+          <path d="M12 8.5v7"></path>
+          <path d="M9 10l6 4"></path>
+          <path d="M9 14l6 -4"></path>
+        </svg>
+      </span>
+      <span class="brand-text">SP<span>.</span></span>
+    </a>
+    <nav id="main-navigation" aria-label="Main navigation">
+      <a href="#about">About</a>
+      {hasProjects && <a href="#projects">Projects</a>}
+      {hasExperience && <a href="#experience">Experience</a>}
+      {hasEducation && <a href="#education">Education</a>}
+      {hasCertifications && <a href="#certifications">Certifications</a>}
     </nav>
-    <button
-      class="theme-toggle"
-      type="button"
-      aria-label="Switch to light theme"
-      title="Switch theme"
-    >
-      <span class="theme-icon theme-icon-sun" aria-hidden="true">
+    <div class="header-actions">
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme"
+        title="Switch theme"
+      >
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+            <path
+              d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+            ></path>
+          </svg>
+        </span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"
+            ></path>
+          </svg>
+        </span>
+      </button>
+      <button
+        class="mobile-menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+        title="Open navigation"
+      >
         <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          fill="currentColor"
+          class="menu-icon"
           aria-hidden="true"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-          <path
-            d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+          <path d="M21 6a1 1 0 0 1 -1 1h-16a1 1 0 1 1 0 -2h16a1 1 0 0 1 1 1"
+          ></path>
+          <path d="M21 12a1 1 0 0 1 -1 1h-16a1 1 0 0 1 0 -2h16a1 1 0 0 1 1 1"
+          ></path>
+          <path d="M21 18a1 1 0 0 1 -1 1h-16a1 1 0 0 1 0 -2h16a1 1 0 0 1 1 1"
           ></path>
         </svg>
-      </span>
-      <span class="theme-icon theme-icon-moon" aria-hidden="true">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path
-            d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"
-          ></path>
-        </svg>
-      </span>
-    </button>
+      </button>
+    </div>
   </div>
 </header>
 
 <script>
   const themeToggle =
     document.querySelector<HTMLButtonElement>(".theme-toggle");
+  const mobileMenuToggle = document.querySelector<HTMLButtonElement>(
+    ".mobile-menu-toggle",
+  );
+  const mainNavigation =
+    document.querySelector<HTMLElement>("#main-navigation");
+
+  const closeMobileMenu = () => {
+    mainNavigation?.classList.remove("is-open");
+    mobileMenuToggle?.classList.remove("is-open");
+    mobileMenuToggle?.setAttribute("aria-expanded", "false");
+    mobileMenuToggle?.setAttribute("aria-label", "Open navigation");
+  };
+
+  const handleDocumentClick = (event: MouseEvent) => {
+    const target = event.target as Node | null;
+
+    if (
+      target &&
+      !mainNavigation?.contains(target) &&
+      !mobileMenuToggle?.contains(target)
+    ) {
+      closeMobileMenu();
+    }
+  };
 
   const updateThemeToggle = () => {
     const isLight = document.documentElement.dataset.theme === "light";
@@ -73,12 +149,34 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     themeToggle?.classList.toggle("is-light", isLight);
   };
 
+  mobileMenuToggle?.addEventListener("click", () => {
+    const isOpen = mainNavigation?.classList.toggle("is-open");
+    mobileMenuToggle.classList.toggle("is-open", Boolean(isOpen));
+    mobileMenuToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+    mobileMenuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation" : "Open navigation",
+    );
+  });
+
+  mainNavigation?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
   themeToggle?.addEventListener("click", () => {
     const nextTheme =
       document.documentElement.dataset.theme === "light" ? "dark" : "light";
     document.documentElement.dataset.theme = nextTheme;
     localStorage.setItem("portfolio-theme", nextTheme);
     updateThemeToggle();
+  });
+
+  document.addEventListener("click", handleDocumentClick);
+  document.addEventListener("scroll", closeMobileMenu, { passive: true });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+    }
   });
 
   updateThemeToggle();
@@ -89,18 +187,43 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     padding: 26px 0;
   }
   .header-inner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
   }
   .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 1.15rem;
     font-weight: 700;
     letter-spacing: -0.08em;
     text-decoration: none;
+    color: var(--ink);
   }
-  .brand span {
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .brand-mark svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+  }
+  .brand-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    font-weight: 700;
+  }
+  .brand-text span {
     color: var(--accent);
   }
   nav {
@@ -116,11 +239,14 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     justify-content: center;
     min-height: 30px;
     padding: 0.4rem 0.8rem;
-    border-radius: 10px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
     font-size: 0.75rem;
     line-height: 1;
     text-decoration: none;
+    text-transform: capitalize;
     color: var(--muted);
+    background: transparent;
     transition:
       background-color 180ms ease,
       color 180ms ease,
@@ -131,9 +257,44 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   nav a:focus-visible {
     color: var(--ink);
     background: var(--hover-surface);
+    border-color: rgba(183, 201, 124, 0.7);
   }
   nav a:active {
     transform: translateY(1px);
+  }
+  .mobile-menu-toggle {
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    flex: 0 0 30px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+  .mobile-menu-toggle svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+  }
+  .mobile-menu-toggle:hover,
+  .mobile-menu-toggle:focus-visible,
+  .mobile-menu-toggle.is-open {
+    border-color: rgba(183, 201, 124, 0.7);
+    background: var(--hover-surface);
+  }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   .theme-toggle {
     display: grid;
@@ -142,8 +303,8 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     padding: 0;
     flex: 0 0 30px;
     place-items: center;
-    border: 1px solid transparent;
-    border-radius: 10px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
     background: transparent;
     color: var(--ink);
     cursor: pointer;
@@ -156,7 +317,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   }
   .theme-toggle:hover,
   .theme-toggle:focus-visible {
-    border-color: var(--line);
+    border-color: rgba(183, 201, 124, 0.7);
     background: var(--hover-surface);
   }
   .theme-toggle:active {
@@ -188,19 +349,46 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
       padding: 20px 0;
     }
     nav {
-      flex: 1;
-      justify-content: end;
-      gap: 6px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    nav::-webkit-scrollbar {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      right: 0;
+      z-index: 20;
       display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--paper);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.26);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 0ms linear 180ms;
+    }
+    nav.is-open {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition-delay: 0ms;
     }
     nav a {
-      font-size: 0.65rem;
+      width: 100%;
+      justify-content: flex-start;
+      font-size: 0.72rem;
       white-space: nowrap;
-      padding: 0.35rem 0.65rem;
+      padding: 0.55rem 0.75rem;
+    }
+    .mobile-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .theme-toggle {
       margin-left: 0;

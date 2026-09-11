@@ -4,6 +4,52 @@ import { siteConfig } from "../config";
 
 <footer class="page-shell footer" data-reveal>
   <div class="footer-rule"></div>
+  <div class="certifications" id="certifications">
+    <div class="section-heading">
+      <span class="eyebrow">05 / certifications</span>
+    </div>
+    <ul class="cert-list">
+      {
+        siteConfig.certifications?.map((cert) => (
+          <li>
+            <a href={cert.link} target="_blank" rel="noopener noreferrer">
+              <div class="cert-copy">
+                <span class="cert-name">{cert.name}</span>
+                <span class="cert-meta">
+                  {cert.year} · {cert.provider}
+                </span>
+              </div>
+              <span class="cert-link-label" aria-label={`Verify ${cert.name}`}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-circle-dashed-check"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" />
+                  <path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" />
+                  <path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" />
+                  <path d="M8.56 20.31a9 9 0 0 0 3.44 .69" />
+                  <path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95" />
+                  <path d="M20.31 15.44a9 9 0 0 0 .69 -3.44" />
+                  <path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92" />
+                  <path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69" />
+                  <path d="M9 12l2 2l4 -4" />
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
   <div class="footer-grid">
     <div>
       <p class="eyebrow">Have a project in mind?</p>
@@ -11,7 +57,24 @@ import { siteConfig } from "../config";
     </div>
     <div class="footer-links">
       <a class="email-link" href={`mailto:${siteConfig.social.email}`}
-        >{siteConfig.social.email} <span>↗</span></a
+        >{siteConfig.social.email}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="email-icon"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M17 7l-10 10"></path>
+          <path d="M8 7l9 0l0 9"></path>
+        </svg></a
       >
       <div class="socials">
         {
@@ -40,9 +103,52 @@ import { siteConfig } from "../config";
     </div>
   </div>
   <div class="footer-bottom">
-    <span>{siteConfig.name}</span><span
-      >© {new Date().getFullYear()} · built with care</span
-    >
+    <span class="footer-brand">
+      <span class="footer-brand-mark" aria-hidden="true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14"
+          ></path>
+          <path d="M12 8.5v7"></path>
+          <path d="M9 10l6 4"></path>
+          <path d="M9 14l6 -4"></path>
+        </svg>
+      </span>
+      {siteConfig.name}
+    </span>
+    <span class="footer-meta">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="footer-copyright-icon"
+        aria-hidden="true"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+        <path
+          d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"
+        ></path>
+      </svg>
+      {new Date().getFullYear()} · Built with Care ❤
+    </span>
   </div>
 </footer>
 
@@ -52,6 +158,87 @@ import { siteConfig } from "../config";
   }
   .footer-rule {
     border-top: none;
+  }
+  .certifications {
+    padding: 0;
+  }
+  .section-heading {
+    border-top: none;
+    margin-bottom: clamp(24px, 2.8vw, 38px);
+  }
+  .cert-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .cert-list li {
+    color: var(--muted);
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+  .cert-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px 16px 14px 18px;
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--accent);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.01),
+      rgba(183, 201, 124, 0.02)
+    );
+    color: var(--muted);
+    text-decoration: none;
+    transition:
+      transform 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+  .cert-list a:hover {
+    color: var(--ink);
+    transform: translateX(4px);
+    border-color: rgba(183, 201, 124, 0.5);
+    background: rgba(183, 201, 124, 0.04);
+    box-shadow: inset 0 0 0 1px rgba(183, 201, 124, 0.12);
+  }
+  .cert-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .cert-name {
+    color: var(--ink);
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .cert-meta {
+    color: var(--muted);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .cert-link-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .cert-link-label svg {
+    width: 24px;
+    height: 24px;
+    display: block;
   }
   .footer-grid {
     display: grid;
@@ -79,14 +266,20 @@ import { siteConfig } from "../config";
     gap: 30px;
   }
   .email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     border-bottom: 1px solid var(--ink);
     padding-bottom: 7px;
     font-size: 0.9rem;
     text-decoration: none;
   }
-  .email-link span {
+  .email-icon {
+    width: 16px;
+    height: 16px;
     color: var(--accent);
-    margin-left: 14px;
+    display: block;
+    flex-shrink: 0;
   }
   .socials {
     display: flex;
@@ -103,10 +296,44 @@ import { siteConfig } from "../config";
   .footer-bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 12px;
     border-top: 1px solid var(--line);
     padding-top: 15px;
     color: var(--muted);
     font-size: 0.68rem;
+  }
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+  }
+  .footer-brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .footer-brand-mark svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+  .footer-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .footer-copyright-icon {
+    width: 12px;
+    height: 12px;
+    display: block;
+    flex-shrink: 0;
   }
   @media (max-width: 700px) {
     .footer {

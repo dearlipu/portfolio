@@ -4,23 +4,81 @@ import { siteConfig } from "../config";
 
 <section id="hero" class="hero page-shell">
   <div class="hero-copy">
-    <p class="eyebrow">Balugaon, Odisha, India</p>
+    <p class="eyebrow location-line">
+      <span class="location-icon" aria-hidden="true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+          <path
+            d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"
+          ></path>
+        </svg>
+      </span>
+      Balugaon, Odisha, India
+    </p>
     <h1>{siteConfig.name}</h1>
     <p class="hero-role">{siteConfig.title}</p>
   </div>
+
   <div class="hero-footer">
     <div class="hero-footer-top">
-      <span class="scroll-note">scroll to explore <span>↓</span></span>
+      <span class="scroll-note">
+        scroll to explore
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="scroll-icon"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M12 5l0 14"></path>
+          <path d="M18 13l-6 6"></path>
+          <path d="M6 13l6 6"></path>
+        </svg>
+      </span>
       <a
         class="resume-link"
         href="https://dearlipu.is-a.dev/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
-        resume <span>↗</span>
+        resume
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="resume-icon"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M17 7l-10 10"></path>
+          <path d="M8 7l9 0l0 9"></path>
+        </svg>
       </a>
     </div>
-    <div class="hero-footer-line" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -32,12 +90,40 @@ import { siteConfig } from "../config";
     justify-content: space-between;
     padding: 12vh 0 36px;
   }
+
   .hero-copy {
     max-width: 900px;
     display: flex;
     flex-direction: column;
     animation: rise 0.8s ease-out both;
   }
+
+  .location-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .location-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .location-icon svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+  }
+
   .hero h1 {
     margin: 28px 0 12px;
     font-family: var(--serif);
@@ -46,17 +132,20 @@ import { siteConfig } from "../config";
     letter-spacing: -0.08em;
     line-height: 0.82;
   }
+
   .hero-role {
     margin: 0;
     font-size: clamp(1rem, 2vw, 1.4rem);
     color: var(--muted);
   }
+
   .hero-intro {
     max-width: 610px;
     margin-top: 42px;
     font-size: clamp(1rem, 1.5vw, 1.25rem);
     line-height: 1.7;
   }
+
   .hero-footer {
     position: sticky;
     bottom: 20px;
@@ -65,7 +154,10 @@ import { siteConfig } from "../config";
     flex-direction: column;
     margin-top: clamp(3rem, 12vh, 8rem);
     background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
   }
+
   .hero-footer-top {
     display: flex;
     justify-content: space-between;
@@ -73,40 +165,62 @@ import { siteConfig } from "../config";
     border-top: 1px solid var(--line);
     padding-top: 20px;
   }
-  .hero-footer-line {
-    width: 100%;
-    height: 1px;
-    background: var(--line);
-    margin-top: 20px;
-  }
+
   .scroll-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--muted);
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    line-height: 1;
+    white-space: nowrap;
   }
-  .scroll-note span {
+
+  .scroll-icon {
+    width: 14px;
+    height: 14px;
+    display: block;
     color: var(--ink);
-    font-size: 1rem;
-    margin-left: 8px;
+    flex-shrink: 0;
   }
+
   .resume-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 24px;
+    padding: 0;
     color: var(--muted);
     font-size: 0.7rem;
+    line-height: 1;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
+    white-space: nowrap;
     transition: color 180ms ease;
   }
+
+  .resume-icon {
+    width: 14px;
+    height: 14px;
+    display: block;
+    flex-shrink: 0;
+  }
+
   .resume-link:hover,
   .resume-link:focus-visible {
     color: var(--ink);
   }
+
   @keyframes rise {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -119,24 +233,27 @@ import { siteConfig } from "../config";
       padding-top: 10vh;
       padding-bottom: 28px;
     }
+
     .hero h1 {
       margin-top: 24px;
       font-size: clamp(4rem, 20vw, 7rem);
     }
+
     .hero-role {
       margin-top: 0;
     }
+
     .hero-intro {
       margin-top: 30px;
     }
+
     .hero-footer {
       margin-top: 2.5rem;
+      padding-bottom: 18px;
     }
+
     .hero-footer-top {
       padding-top: 18px;
-    }
-    .hero-footer-line {
-      margin-top: 18px;
     }
   }
 </style>
