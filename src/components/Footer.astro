@@ -3,7 +3,6 @@ import { siteConfig } from "../config";
 ---
 
 <footer class="page-shell footer" data-reveal>
-  <div class="footer-rule"></div>
   <div class="certifications" id="certifications">
     <div class="section-heading">
       <span class="eyebrow">05 / certifications</span>
@@ -154,10 +153,7 @@ import { siteConfig } from "../config";
 
 <style>
   .footer {
-    padding: 28px 0 28px;
-  }
-  .footer-rule {
-    border-top: none;
+    padding: var(--section-space) 0 28px;
   }
   .certifications {
     padding: 0;
@@ -244,7 +240,7 @@ import { siteConfig } from "../config";
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10%;
-    padding: 60px 0 100px;
+    padding: var(--section-space) 0 100px;
   }
   h2 {
     margin: 28px 0 0;
@@ -337,12 +333,12 @@ import { siteConfig } from "../config";
   }
   @media (max-width: 700px) {
     .footer {
-      padding-top: 40px;
+      padding-top: var(--section-space);
     }
     .footer-grid {
       grid-template-columns: 1fr;
       gap: 50px;
-      padding: 45px 0 70px;
+      padding: var(--section-space) 0 70px;
     }
   }
 </style>

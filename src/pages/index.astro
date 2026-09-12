@@ -31,8 +31,9 @@ import "../styles/global.css";
     <title>{siteConfig.name} - {siteConfig.title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
-    <main>
+    <main id="main-content">
       <Hero />
       <About />
       <Projects />
@@ -68,6 +69,8 @@ import "../styles/global.css";
         document.querySelectorAll<HTMLElement>("[data-reveal]");
       const scrollTopButton =
         document.querySelector<HTMLButtonElement>(".scroll-top-button");
+      const compactViewport = window.matchMedia("(max-width: 640px)");
+      let scrollTopHideTimer: ReturnType<typeof setTimeout> | undefined;
 
       if ("IntersectionObserver" in window) {
         const revealObserver = new IntersectionObserver(
@@ -87,14 +90,44 @@ import "../styles/global.css";
         revealItems.forEach((item) => item.classList.add("is-visible"));
       }
 
+      const clearScrollTopHideTimer = () => {
+        if (scrollTopHideTimer) {
+          window.clearTimeout(scrollTopHideTimer);
+          scrollTopHideTimer = undefined;
+        }
+      };
+
+      const scheduleScrollTopHide = () => {
+        clearScrollTopHideTimer();
+
+        if (!compactViewport.matches || !scrollTopButton) return;
+
+        scrollTopHideTimer = window.setTimeout(() => {
+          if (!scrollTopButton.matches(":focus")) {
+            scrollTopButton.classList.add("is-idle-hidden");
+          }
+        }, 2500);
+      };
+
       const updateScrollTopButton = () => {
         const visible = window.scrollY > 320;
         scrollTopButton?.classList.toggle("is-visible", visible);
+
+        if (!visible) {
+          clearScrollTopHideTimer();
+          scrollTopButton?.classList.remove("is-idle-hidden");
+          return;
+        }
+
+        scrollTopButton?.classList.remove("is-idle-hidden");
+        scheduleScrollTopHide();
       };
 
       scrollTopButton?.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
+      scrollTopButton?.addEventListener("focus", clearScrollTopHideTimer);
+      scrollTopButton?.addEventListener("blur", scheduleScrollTopHide);
 
       updateScrollTopButton();
       window.addEventListener("scroll", updateScrollTopButton, {

@@ -26,8 +26,12 @@ import { siteConfig } from "../config";
       </span>
       Balugaon, Odisha, India
     </p>
-    <h1>{siteConfig.name}</h1>
-    <p class="hero-role">{siteConfig.title}</p>
+    <h1 data-name-scramble={siteConfig.name}>{siteConfig.name}</h1>
+    <p class="hero-role">
+      <span class="typewriter" data-typewriter={siteConfig.heroRoles.join("|")}>
+        {siteConfig.title}
+      </span>
+    </p>
   </div>
 
   <div class="hero-footer">
@@ -82,6 +86,99 @@ import { siteConfig } from "../config";
   </div>
 </section>
 
+<script>
+  const name = document.querySelector<HTMLElement>("[data-name-scramble]");
+  const typewriter = document.querySelector<HTMLElement>("[data-typewriter]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion) {
+    typewriter?.classList.add("is-waiting");
+  }
+
+  const startTypewriter = () => {
+    if (!typewriter) return;
+
+    const phrases = (typewriter.dataset.typewriter ?? "").split("|");
+    let phraseIndex = 0;
+    let characterIndex = 0;
+    typewriter.textContent = "";
+    typewriter.classList.remove("is-waiting");
+    typewriter.classList.add("is-typing");
+
+    const typeNextCharacter = () => {
+      const text = phrases[phraseIndex] ?? "";
+      typewriter.textContent = text.slice(0, characterIndex);
+      characterIndex += 1;
+
+      if (characterIndex <= text.length) {
+        window.setTimeout(typeNextCharacter, 72);
+      } else {
+        window.setTimeout(eraseCharacter, 2200);
+      }
+    };
+
+    const eraseCharacter = () => {
+      const text = phrases[phraseIndex] ?? "";
+      characterIndex -= 1;
+      typewriter.textContent = text.slice(0, characterIndex);
+
+      if (characterIndex > 0) {
+        window.setTimeout(eraseCharacter, 38);
+      } else {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        window.setTimeout(typeNextCharacter, 550);
+      }
+    };
+
+    typeNextCharacter();
+  };
+
+  if (reduceMotion) {
+    // Keep the server-rendered text visible without animation.
+  } else if (name) {
+    const text = name.dataset.nameScramble ?? "";
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+    let revealedCharacters = 0;
+
+    const scrambleName = () => {
+      const middleIndex = Math.floor(text.length / 2);
+      const fragment = document.createDocumentFragment();
+
+      [...text].forEach((character, index) => {
+        const letter = document.createElement("span");
+        const isRevealed = character === " " || index < revealedCharacters;
+        letter.textContent = isRevealed
+          ? character
+          : characters[Math.floor(Math.random() * characters.length)];
+
+        if (
+          !isRevealed &&
+          (Math.abs(index - middleIndex) <= 1 || index % 3 === 0)
+        ) {
+          letter.className = "scramble-accent";
+        }
+
+        fragment.append(letter);
+      });
+
+      name.replaceChildren(fragment);
+
+      revealedCharacters += 0.2;
+
+      if (revealedCharacters < text.length) {
+        window.setTimeout(scrambleName, 80);
+      } else {
+        name.textContent = text;
+        window.setTimeout(startTypewriter, 220);
+      }
+    };
+
+    window.setTimeout(scrambleName, 180);
+  } else {
+    startTypewriter();
+  }
+</script>
+
 <style>
   .hero {
     min-height: calc(100vh - 78px);
@@ -131,6 +228,11 @@ import { siteConfig } from "../config";
     font-weight: 400;
     letter-spacing: -0.08em;
     line-height: 0.82;
+    white-space: pre-wrap;
+  }
+
+  .scramble-accent {
+    color: var(--accent);
   }
 
   .hero-role {
@@ -139,21 +241,25 @@ import { siteConfig } from "../config";
     color: var(--muted);
   }
 
-  .hero-intro {
-    max-width: 610px;
-    margin-top: 42px;
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    line-height: 1.7;
+  .typewriter.is-typing::after {
+    display: inline-block;
+    width: 0;
+    height: 1.1em;
+    margin-left: 0.12em;
+    border-right: 1px solid currentColor;
+    content: "";
+    vertical-align: -0.16em;
+    animation: cursor-blink 900ms steps(1, end) infinite;
+  }
+
+  .typewriter.is-waiting {
+    opacity: 0;
   }
 
   .hero-footer {
-    position: sticky;
-    bottom: 20px;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     margin-top: clamp(3rem, 12vh, 8rem);
-    background: var(--paper);
     border-bottom: 1px solid var(--line);
     padding-bottom: 20px;
   }
@@ -227,10 +333,17 @@ import { siteConfig } from "../config";
     }
   }
 
+  @keyframes cursor-blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+
   @media (max-width: 640px) {
     .hero {
       min-height: calc(100vh - 65px);
-      padding-top: 10vh;
+      min-height: calc(100svh - 70px);
+      padding-top: min(10svh, 80px);
       padding-bottom: 28px;
     }
 
@@ -241,10 +354,6 @@ import { siteConfig } from "../config";
 
     .hero-role {
       margin-top: 0;
-    }
-
-    .hero-intro {
-      margin-top: 30px;
     }
 
     .hero-footer {

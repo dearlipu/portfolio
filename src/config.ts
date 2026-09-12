@@ -1,6 +1,15 @@
 export const siteConfig = {
   name: "Saurav Panda",
   title: "Developer & Designer",
+  heroRoles: [
+    "Developer & Designer",
+    "Operations • Design • Digital",
+    "Systems, Stories & Solutions",
+    "Building Useful Digital Work",
+    "Operations Professional & Creator",
+    "Designing Better Workflows",
+    "Creative Systems Specialist",
+  ],
   description:
     "Portfolio of Saurav Panda, a developer and designer with experience in web development, user experience, and digital design.",
   social: {
@@ -91,6 +100,7 @@ export const siteConfig = {
   projects: [
     {
       name: "Museum Operations & Visitor Experience",
+      isNew: true,
       description:
         "Managed day-to-day museum operations, coordinated visitor services, supervised staff schedules, and improved internal reporting and workflow systems.",
       skills: ["Operations", "Administration", "Documentation", "Team Support"],
@@ -103,6 +113,7 @@ export const siteConfig = {
     },
     {
       name: "Media Production & Branding",
+      isNew: true,
       description:
         "Produced posters, graphics, thumbnails, and video content for digital publishing, branding, and online communication.",
       skills: ["Graphic Design", "Video Editing", "Content Creation", "Branding"],
