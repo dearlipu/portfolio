@@ -101,11 +101,11 @@ export const siteConfig = {
   ],
   projects: [
     {
-      name: "Museum Operations & Visitor Experience",
+      name: "Museum Collection Management",
       isNew: true,
       link: "#",
       description:
-        "Managed day-to-day museum operations, coordinated visitor services, supervised staff schedules, and improved internal reporting and workflow systems.",
+        "Built a complete digital accession and collection system from scratch, cataloguing museum artefacts with accession numbers, reference codes, images, provenance, and detailed records. Researched collection practices used by leading museums and organized the museum’s archive across Access, Excel, and Google Drive, with QR codes linking each artefact to its high-resolution images on any device. Developed the system at no cost for the NGO, providing a practical, long-term solution that staff can maintain independently.",
       skills: ["Operations", "Administration", "Documentation", "Team Support"],
     },
     {
