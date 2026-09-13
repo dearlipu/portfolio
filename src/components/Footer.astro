@@ -32,15 +32,12 @@ import { siteConfig } from "../config";
                   class="icon icon-tabler icons-tabler-outline icon-tabler-circle-dashed-check"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" />
-                  <path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" />
-                  <path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" />
-                  <path d="M8.56 20.31a9 9 0 0 0 3.44 .69" />
-                  <path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95" />
-                  <path d="M20.31 15.44a9 9 0 0 0 .69 -3.44" />
-                  <path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92" />
-                  <path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69" />
-                  <path d="M9 12l2 2l4 -4" />
+                  <path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                  <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+                  <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" />
+                  <path d="M6 9l12 0" />
+                  <path d="M6 12l3 0" />
+                  <path d="M6 15l2 0" />
                 </svg>
               </span>
             </a>
@@ -84,6 +81,17 @@ import { siteConfig } from "../config";
               rel="noopener noreferrer"
             >
               github
+            </a>
+          )
+        }
+        {
+          siteConfig.social.twitter && (
+            <a
+              href={siteConfig.social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              twitter
             </a>
           )
         }
@@ -146,7 +154,7 @@ import { siteConfig } from "../config";
           d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"
         ></path>
       </svg>
-      {new Date().getFullYear()} · Built with Care ❤
+      {new Date().getFullYear()} · Built with care ❤
     </span>
   </div>
 </footer>

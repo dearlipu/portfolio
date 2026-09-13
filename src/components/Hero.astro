@@ -24,7 +24,7 @@ import { siteConfig } from "../config";
           ></path>
         </svg>
       </span>
-      Balugaon, Odisha, India
+      Odisha, India
     </p>
     <h1 data-name-scramble={siteConfig.name}>{siteConfig.name}</h1>
     <p class="hero-role">
@@ -78,8 +78,11 @@ import { siteConfig } from "../config";
           aria-hidden="true"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M17 7l-10 10"></path>
-          <path d="M8 7l9 0l0 9"></path>
+          <path d="M12 9h.01"></path>
+          <path
+            d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14"
+          ></path>
+          <path d="M11 12h1v4h1"></path>
         </svg>
       </a>
     </div>
@@ -89,7 +92,9 @@ import { siteConfig } from "../config";
 <script>
   const name = document.querySelector<HTMLElement>("[data-name-scramble]");
   const typewriter = document.querySelector<HTMLElement>("[data-typewriter]");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   if (!reduceMotion) {
     typewriter?.classList.add("is-waiting");
@@ -139,6 +144,7 @@ import { siteConfig } from "../config";
     const text = name.dataset.nameScramble ?? "";
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
     let revealedCharacters = 0;
+    name.classList.add("is-scrambling");
 
     const scrambleName = () => {
       const middleIndex = Math.floor(text.length / 2);
@@ -169,6 +175,7 @@ import { siteConfig } from "../config";
         window.setTimeout(scrambleName, 80);
       } else {
         name.textContent = text;
+        name.classList.remove("is-scrambling");
         window.setTimeout(startTypewriter, 220);
       }
     };
@@ -231,7 +238,13 @@ import { siteConfig } from "../config";
     white-space: pre-wrap;
   }
 
-  .scramble-accent {
+  @media (min-width: 641px) {
+    .hero h1.is-scrambling {
+      white-space: nowrap;
+    }
+  }
+
+  :global(.scramble-accent) {
     color: var(--accent);
   }
 

@@ -3,20 +3,19 @@ export const siteConfig = {
   title: "Developer & Designer",
   heroRoles: [
     "Developer & Designer",
-    "Operations • Design • Digital",
-    "Systems, Stories & Solutions",
-    "Building Useful Digital Work",
-    "Operations Professional & Creator",
-    "Designing Better Workflows",
-    "Creative Systems Specialist",
+    "Creative Technologist",
+    "Digital Problem Solver",
+    "Systems & Workflow Builder",
+    "Designing Better Digital Work",
+    "Turning Ideas Into Systems",
+    "Building Useful Things"
   ],
   description:
     "Portfolio of Saurav Panda, a developer and designer with experience in web development, user experience, and digital design.",
   social: {
     email: "hello@dearlipu.is-a.dev",
     website: "https://dearlipu.is-a.dev",
-    linkedin: "",
-    twitter: "",
+    twitter: "https://x.com/dearlipu",
     github: "https://github.com/dearlipu",
   },
   certifications: [
@@ -66,6 +65,9 @@ export const siteConfig = {
     "TypeScript",
     "Astro",
     "Python",
+    "Java",
+    "C/C++",
+    "SQL",
   ],
   skills: [
     "Operations Management",
@@ -101,37 +103,43 @@ export const siteConfig = {
     {
       name: "Museum Operations & Visitor Experience",
       isNew: true,
+      link: "#",
       description:
         "Managed day-to-day museum operations, coordinated visitor services, supervised staff schedules, and improved internal reporting and workflow systems.",
       skills: ["Operations", "Administration", "Documentation", "Team Support"],
     },
     {
       name: "Digital Literacy Training",
+      isNew: true,
+      link: "#",
       description:
         "Delivered computer and digital literacy training to students, covering MS Office, internet use, and beginner web development through practical instruction.",
       skills: ["Training", "Computer Skills", "MS Office", "Web Basics"],
     },
     {
       name: "Media Production & Branding",
-      isNew: true,
+      link: "#",
       description:
         "Produced posters, graphics, thumbnails, and video content for digital publishing, branding, and online communication.",
       skills: ["Graphic Design", "Video Editing", "Content Creation", "Branding"],
     },
     {
       name: "Technical Support & Systems Maintenance",
+      link: "#",
       description:
         "Provided hands-on technical support, maintained workplace systems, and helped keep digital and operational processes running smoothly.",
       skills: ["IT Support", "System Maintenance", "Problem Solving", "Operations"],
     },
     {
       name: "Content Strategy & Social Media Design",
+      link: "#",
       description:
         "Created visual content, promotional assets, and digital materials to support branding, audience engagement, and online communication.",
       skills: ["Graphic Design", "Content Creation", "Branding", "Social Media"],
     },
     {
       name: "Workshop & Training Coordination",
+      link: "#",
       description:
         "Organized practical training sessions, guided learners through essential digital tools, and supported skill-building in real-world settings.",
       skills: ["Training", "Facilitation", "Digital Skills", "Mentoring"],
@@ -139,7 +147,7 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "Indian Naval Hospital Ship Nivarini, Chilka, Odisha",
+      company: "Indian Naval Hospital Ship Nivarini, Chilka",
       title: "IT Engineer",
       jobType: "Part-time",
       dateRange: "July 2026 – Present",
@@ -150,7 +158,7 @@ export const siteConfig = {
       ],
     },
     {
-      company: "Purvasha Folk & Tribal Odi Art Museum, Barkul, Odisha",
+      company: "Purvasha Folk & Tribal Odi Art Museum, Barkul",
       title: "Assistant Manager",
       jobType: "Full-time",
       dateRange: "December 2022 – December 2025",
@@ -161,7 +169,7 @@ export const siteConfig = {
       ],
     },
     {
-      company: "Nanotech Computer Academy, Bidharpur, Odisha",
+      company: "Nanotech Computer Academy, Bidharpur",
       title: "Teacher & Trainer",
       jobType: "Part-time",
       dateRange: "September 2022 – March 2023",
@@ -172,7 +180,7 @@ export const siteConfig = {
       ],
     },
     {
-      company: "Odisha Newsroom Media Network, Bhubaneswar, Odisha",
+      company: "Odisha Newsroom Media Network, Bhubaneswar",
       title: "Motion & Graphic Designer",
       jobType: "Remote",
       dateRange: "June 2019 – January 2022",
@@ -185,17 +193,17 @@ export const siteConfig = {
   ],
   education: [
     {
-      school: "Einstein Academy of Technology and Management (EATM), Bhubaneswar, Odisha",
+      school: "Einstein Academy of Technology and Management (EATM), Bhubaneswar",
       degree: "Diploma in Computer Science Engineering (CSE)",
       dateRange: "Expected July 2028",
     },
     {
-      school: "Central Institute of Petrochemicals Engineering & Technology (CIPET), Bhubaneswar, Odisha",
+      school: "Central Institute of Petrochemicals Engineering & Technology (CIPET), Bhubaneswar",
       degree: "Industrial Training in Fitter (NSQF)",
       dateRange: "August 2022",
     },
     {
-      school: "3TIER Computer Academy, Balugaon, Odisha",
+      school: "3TIER Computer Academy, Balugaon",
       degree: "Post Graduate Diploma in Computer Applications",
       dateRange: "March 2020",
     },
